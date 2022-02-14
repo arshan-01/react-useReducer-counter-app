@@ -1,0 +1,19 @@
+
+.counter_app{
+    width: 24%;
+    padding: 30px;
+    margin: auto;
+ 
+}
+.counter_parts{
+    width: 60%;
+    padding: 20px;
+    margin: auto;
+    border: 2px solid red;
+   
+}
+.counter_parts span{
+    padding:20px;
+    font-size: 25px;
+    font-weight: 500;
+}
