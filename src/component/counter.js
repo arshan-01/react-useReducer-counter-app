@@ -1,31 +1,26 @@
 import "./Css/counter.css";
-import Button from "./button";
-import { useState } from "react";
+import React , {useReducer} from "react";
+import {CounterReducer} from "./CounterReducer";
+import { Action_Type } from "./CounterActionTypes";
+let initialState = 0;
 
 export default function CounterApp() {
 
-const [counter, setCount] = useState(0);
+  const [state, dispatch] = useReducer(CounterReducer , initialState);
 
-let Increment = () => {
-    setCount(counter + 1);
-}
-let Decrement = () => {
-    if (counter > 0) {
-        setCount(counter - 1)};
-    }
     
   return (
-  <div className="counter_app">
+    <div className="counter_app"> 
     <h4>Simple Counter Increment and Decrement </h4>
    <div className="counter_parts">
     <span>
-    <Button title={"-"} action={Decrement}/>
+   <button onClick={()=> dispatch({type : Action_Type.COUNT_DEC})} >-</button>
     </span>
 
-    <span>{counter}</span>
+    <span>{state}</span>
 
     <span>
-        <Button title={"+"} action={Increment}/>
+    <button onClick={()=> dispatch({type : Action_Type.COUNT_INC})}>+</button>
     </span>
     
     </div>
